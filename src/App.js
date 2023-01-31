@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { ReactOneDriveFilePicker } from "react-onedrive-filepicker";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactOneDriveFilePicker
+        clientID="317ed00f-e39d-491c-a2fd-fa468e19190f"
+        action="share"
+        multiSelect={true}
+        onSuccess={(result) => {
+          alert(JSON.stringify(result));
+        }}
+        onCancel={(result) => {
+          alert(JSON.stringify(result));
+        }}
+      >
+        <button>Upload To One Drive</button>
+      </ReactOneDriveFilePicker>
+      <h2>Welcome to WLC Technology</h2>
+
     </div>
   );
 }
-
-export default App;
